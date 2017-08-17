@@ -1,0 +1,14 @@
+/* cv form specific css */
+#preview {
+    display: block;
+    max-width: 360px;
+    max-height: 249px;
+    border-radius: 5%;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+.separator {
+    padding-left: 10px;
+    padding-right: 10px;
+}

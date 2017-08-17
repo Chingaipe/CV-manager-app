@@ -1,0 +1,55 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+  <div class="container topnav">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand topnav" [routerLink]="['/']">CV App</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']">
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+                <li *ngIf="!authService.loggedIn()"  [routerLinkActive]="['active']">
+                    <a [routerLink]="['/register']">Register</a>
+                </li>
+
+                <!-- to be displayed when user is logged in -->
+                <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']">
+                    <a [routerLink]="['/dashboard']">Dashboard</a>
+                </li>
+                <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']">
+                    <a [routerLink]="['/create-cv']">create CV</a>
+                </li>
+
+                <!-- /.dropdown -->
+                <li *ngIf="authService.loggedIn()" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>
+                        <!-- user names here -->
+                        {{ getUsername() }}
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a [routerLink]="['/profile']"><i class="fa fa-user fa-fw"></i>My Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a (click)="onLogout()" href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>

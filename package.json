@@ -1,0 +1,30 @@
+{
+  "name": "cv-manager-app",
+  "version": "1.0.0",
+  "description": "CV management app developed on the MEAN stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chingaipe/CV-manager-app.git"
+  },
+  "author": "Marc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chingaipe/CV-manager-app/issues"
+  },
+  "homepage": "https://github.com/Chingaipe/CV-manager-app#readme"
+}

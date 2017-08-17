@@ -1,0 +1,25 @@
+
+<div class="container page-content">
+  <div class="row">
+    <div *ngIf="user" class="col-md-10">
+      <h2>Profile <small>{{user.name}}</small></h2><hr>
+      <div class="panel panel-default">
+        <div class="panel-heading">Profile</div>
+        <div class="panel-body">
+
+          <ul>
+            <p>Name: {{user.name}} </p>
+            <p>Username: {{user.username}}</p>
+            <p>Email: {{user.email}}</p>
+          </ul>
+          <div class="back-btn">
+            <a routerLink="/dashboard" class="btn btn-primary">
+              <i class="fa fa-arrow-left"></i> Back
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- ./row -->
+</div><!-- ./container -->

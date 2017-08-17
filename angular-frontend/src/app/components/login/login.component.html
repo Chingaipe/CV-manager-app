@@ -1,0 +1,42 @@
+ 
+<div class="container page-content">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" (ngSubmit)="onLoginSubmit(loginForm.value)" #loginForm="ngForm">
+                        <div class="form-group">
+                            <label for="email" class="control-label col-md-3">Email</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="email" [(ngModel)]="email" id="email"  placeholder="Enter email..." required>
+                            </div>    
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd" class="control-label col-md-3">Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="password" [(ngModel)]="password" id="pwd"  placeholder="Enter password..." required>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group" style="text-align: center">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/> Remember me
+                                </label>
+                            </div>
+                            <a href="#forgotpassword.html">Forgot password</a>
+                        </div> -->
+                        <div class="form-group" style="text-align: center">
+                            <a routerLink="/" class="btn btn-default">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </a>
+                            <button type="submit" class="btn btn-primary" value="Submit">Sign In</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div> <!-- ./panel -->
+        </div> <!-- ./col -->
+    </div> <!-- ./row -->
+</div> <!-- ./container -->
+   
