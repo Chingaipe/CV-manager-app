@@ -17,8 +17,11 @@ import { CvFormComponent } from './components/cv-form/cv-form.component';
 // service importation
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { CvService } from './services/cv.service';
 import { PasswordMatchDirective } from './directives/password-match.directive';
 import { AuthGuard } from './guards/authGuard';
+import { EditCVComponent } from './components/edit-cv/edit-cv.component';
+
 
 // these specify the apps forntend routes
 const appRoutes: Routes = [
@@ -28,6 +31,7 @@ const appRoutes: Routes = [
   {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path:'create-cv', component: CvFormComponent, canActivate: [AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path:'cv/edit/:user_id', component: EditCVComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
@@ -40,7 +44,8 @@ const appRoutes: Routes = [
     PasswordMatchDirective,
     DashboardComponent,
     ProfileComponent,
-    CvFormComponent
+    CvFormComponent,
+    EditCVComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, CvService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

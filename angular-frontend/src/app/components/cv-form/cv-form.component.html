@@ -1,235 +1,222 @@
 <!-- content area -->
 <div class="container">
-    <div class="row">
-        <h2>Create your cirriculum vitae</h2>
-        <div>
-            <ul class="nav nav-tabs nav-justified">
-                <li class="active"><a data-toggle="tab" href="#home">Personnal Info</a></li>
-                <li><a data-toggle="tab" href="#menu1">Educational Qualifications</a></li>
-                <li><a data-toggle="tab" href="#menu2">Work Experience</a></li>
-                <li><a data-toggle="tab" href="#menu3">Personnal Attributes & Skills</a></li>
-                <li><a data-toggle="tab" href="#menu4">References</a></li>
-            </ul><br>
-        </div>
-       
+  <div class="row">
+      <h2>Create your cirriculum vitae</h2>
+      <div>
+          <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a data-toggle="tab" href="#home">Personnal Info</a></li>
+              <li><a data-toggle="tab" href="#menu1">Educational Qualifications</a></li>
+              <li><a data-toggle="tab" href="#menu2">Work Experience</a></li>
+              <li><a data-toggle="tab" href="#menu3">Personnal Attributes & Skills</a></li>
+              <li><a data-toggle="tab" href="#menu4">References</a></li>
+          </ul><br>
+      </div>
+      <form class="form-horizontal" (ngSubmit)="onSubmitCV(cvForm.value)" #cvForm="ngForm" novalidate>
+          <div class="tab-content">
+              <div id="home" class="tab-pane fade in active">
+                  <h3>Personnal Info </h3>
+                  <br>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Full name</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control" [(ngModel)]="fullName" name="fullName">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Date of birth</label>
+                      <div class="col-md-5">
+                          <input type="date" class="form-control" [(ngModel)]="dob" name="dob">
+                      </div>
+                  </div> 
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Status</label>
+                      <div class="col-md-5">
+                          <label class="radio-inline"> <input type="radio" [(ngModel)]="status" name="status" value="Single" required>Single</label>
+                          <label class="radio-inline"> <input type="radio" [(ngModel)]="status" name="status" value="Married">Married</label>
+                          <label class="radio-inline"> <input type="radio" [(ngModel)]="status" name="status" value="Other">Other</label>
+                      </div>
+                  </div> 
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Address</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control" [(ngModel)]="address" name="address">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Mobile #</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control" [(ngModel)]="mobile" name="mobile">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">E-mail</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="email" name="email">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Nationality</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="nationality" name="nationality">
+                      </div>
+                  </div>
+                      <!-- col for profile image upload -->
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Profile image</label>
+                      <div>
+                          <img id="preview">
+                      </div>
+                      <div class="col-md-5">
+                          <input type="file">
+                      </div>
+                  </div><!-- ./image column -->
 
-        <form class="form-horizontal">
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <h3>Personnal Info </h3>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Firstname</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Surname</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Date of birth</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Status</label>
-                        <div class="col-md-5">
-                            <label class="radio-inline"> <input type="radio" required>Single</label>
-                            <label class="radio-inline"> <input type="radio">Married</label>
-                            <label class="radio-inline"> <input type="radio">Other</label>
-                        </div>
-                    </div> 
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Address</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Mobile #</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">E-mail</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Nationality</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                        <!-- col for profile image upload -->
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Profile image</label>
-                        <div>
-                            <img id="preview">
-                        </div>
-                        <div class="col-md-5">
-                            <input type="file">
-                        </div>
-                    </div><!-- ./image column -->
+                  <!-- nav buttons -->
+                  <div class="form-group">
+                      <a href="#menu2" class="btn btn-primary pull-right">Next</a>
+                  </div>
 
-                    <!-- nav buttons -->
-                    <div class="form-group">
-                        <a href="#menu1" class="btn btn-primary pull-right">Next</a>
+              </div>
+              <div id="menu1" class="tab-pane fade">
+                  <h3>Education Qualifications</h3>
+                  <p>List the educational qualifications you’ve acquired during the course of your life or at work</p>
+                  <br>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Name of Institution</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="name_of_Institution" name="name_of_Institution">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Duration</label>
+                      <div class="col-md-2">
+                          <input type="date" class="form-control"[(ngModel)]="start_duration" name="start_duration">
+                      </div>
+                      <label class="col-md-1" style="text-align: center">to</label> 
+                      <div class="col-md-2">
+                          <input type="date" class="form-control"[(ngModel)]="end_duration" name="end_duration">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Qualification obtained</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="qualification" name="qualification">
+                      </div>
+                  </div>
+                  <!-- nav buttons -->
+                  <div class="pull-right">
+                      <button type="button" class="btn btn-default">Previous</button>
+                      <button type="button" class="btn btn-primary">Next</button>
+                  </div>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                  <h3>Work Experience</h3><br>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Name of Institution worked for</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="name_of_workPlace" name="name_of_workPlace">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Duration</label>
+                      <div class="col-md-2">
+                          <input type="date" class="form-control"[(ngModel)]="work_start" name="work_start">
+                      </div>
+                      <label class="col-md-1" style="text-align: center">to</label> 
+                      <div class="col-md-2">
+                          <input type="date" class="form-control"[(ngModel)]="work_end" name="work_end">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Position held</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="position_held" name="position_held">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Responsibilities</label>
+                      <div class="col-md-5">
+                          <textarea rows="5" class="form-control" [(ngModel)]="responsibilities" name="responsibilities"></textarea>
+                      </div>
+                  </div>
+                  <!-- nav buttons -->
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-default">Previous</button>
+                    <button type="button" class="btn btn-primary">Next</button>
+                  </div>
+              </div>
+              <div id="menu3" class="tab-pane fade">
+                  <h3>Personnal Attributes & Skills</h3>
+                  <p>List the personal abilities and skills you’ve acquired during the course of your life or at work. </p>
+                  <br>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Languages</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="languages" name="languages">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Interests</label>
+                      <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="interests" name="interests">
+                      </div>
+                  </div>
+                 
+                  <!-- nav buttons -->
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-default">Previous</button>
+                    <button type="button" class="btn btn-primary">Next</button>
+                  </div>
+              </div>
+              <div id="menu4" class="tab-pane fade">
+                  <h3>References</h3>
+                  <p>List your references.</p><br>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Title</label>
+                      <div class="col-md-5">
+                            <select class="form-control" [(ngModel)]="title" name="title" id="title" required>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Ms.">Ms.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                            </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3">Name of referee</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"[(ngModel)]="name_of_referee" name="name_of_referee">
                     </div>
-
-                </div>
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Education Qualifications</h3>
-                    <p>List the educational qualifications you’ve acquired during the course of your life or at work</p>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Name of Institution</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Duration</label>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="col-md-1" style="text-align: center">to</label> 
-                        <div class="col-md-2">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Qualification obtained</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <!-- nav buttons -->
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-default">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
-                    </div>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Work Experience</h3><br>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Name of Institution worked for</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Duration</label>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="col-md-1" style="text-align: center">to</label> 
-                        <div class="col-md-2">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Position held</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Responsibilities</label>
-                        <div class="col-md-5">
-                            <textarea rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- nav buttons -->
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-default">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
-                    </div>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <h3>Personnal Attributes & Skills</h3>
-                    <p>List the personal abilities and skills you’ve acquired during the course of your life or at work. </p>
-                    <br>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Languages</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Interests</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Position held</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Responsibilities</label>
-                        <div class="col-md-5">
-                            <textarea rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- nav buttons -->
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-default">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
-                    </div>
-                </div>
-                <div id="menu4" class="tab-pane fade">
-                    <h3>References</h3>
-                    <p>List your references.</p><br>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Title</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Name of referee</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Address</label>
-                        <div class="col-md-5">
-                            <textarea rows="5" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">E-mail</label>
-                       <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3">Contact No.</label>
-                       <div class="col-md-5">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-
-                    <!-- submit form -->
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-default">Previous</button>
-                        <button type="button" class="btn btn-success">Create CV</button>
-                    </div>
-                </div>
-            </div>
-        </form><!-- ./form -->
-    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Address</label>
+                      <div class="col-md-5">
+                          <textarea rows="5" class="form-control"[(ngModel)]="ref_address" name="ref_address"></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">E-mail</label>
+                     <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="ref_email" name="ref_email">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-md-3">Contact No.</label>
+                     <div class="col-md-5">
+                          <input type="text" class="form-control"[(ngModel)]="contact_num" name="contact_num">
+                      </div>
+                  </div>
+                  <!-- hidden input for user_id -->
+                  <input type="hidden" name="user" [(ngModel)]="user" value="{{user}}">
+                   <!-- nav buttons -->
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-default">Previous</button>
+                    <button type="Submit" class="btn btn-primary" value="Submit">Create CV</button>
+                  </div>
+              </div>
+          </div>
+      </form><!-- ./form -->
+  </div>
 
 </div>
 <!-- /.container -->

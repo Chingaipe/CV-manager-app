@@ -60,8 +60,7 @@ export class RegisterComponent implements OnInit {
           // direct back to register page
           this.router.navigate(['/register']);
       }
-    })
-  
+    });
   }
 
 }

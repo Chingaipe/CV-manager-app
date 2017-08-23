@@ -5,27 +5,85 @@
     <div class="col-md-12">
 
         <h2>Dashboard</h2><hr>
+        <P *ngIf="!cv">
+          This is the application dashboard, create a CV and preview it here.
+        </P>
         <div class="col-md-3 col-xs-12 pull-right">
-          <p>Edit or Delete control buttons</p>
-          <ul class="list-inline">
+          <ul *ngIf="cv" class="list-inline">
+              <p>Edit or Delete control buttons</p>
             <li>
               <!-- directs to the login page -->
-              <a href="#" class="btn btn-default">
+              <a routerLink="/cv/edit/{{cv.user}}" class="btn btn-default">
                 <i class="fa fa-pencil"></i> Edit
               </a>
             </li>
             <li>
               <!-- directs to the register page -->
-              <a href="#" class="btn btn-danger">
+              <button type="button" class="btn btn-danger" (click)="onDeleteClick(cv.user)">
                 <i class="fa fa-trash"></i> Delete
-              </a>
+              </button>
             </li>
           </ul>
         </div>
     
         <div class="col-md-9 col-xs-12">
-          <h3 class="section-heading">CV preview</h3>
-          <div>preview comes here</div>
+          <!-- if cv is on empty display preview -->
+          <div *ngIf="cv" >
+            <div class="panel panel-default">
+              <div class="panel-heading">CV preview</div>
+              <div class="panel-body">
+                <div>
+                  <h3>Personal Info</h3>
+                  <ul>
+                    <p>Name:  {{cv.PersonalInfor.fullName}}</p>
+                    <p>Status: {{cv.PersonalInfor.status}}</p>
+                    <p>Email: {{cv.PersonalInfor.email}}</p>
+                    <p>Date Of Birth: {{cv.PersonalInfor.dob}}</p>
+                    <p>Contact #: {{cv.PersonalInfor.mobile}}</p>
+                    <p>Address: {{cv.PersonalInfor.address}}</p>
+                    <p>Nationality: {{cv.PersonalInfor.nationality}}</p>
+                  </ul>
+                </div><!-- ./personal info -->
+                <div>
+                    <h3>Education Info</h3>
+                    <ul>
+                      <p>Name of institution attended:  {{cv.EducationInfor.name_of_Institution}}</p>
+                      <p>
+                        Attended from: {{cv.EducationInfor.start_duration}} - to: {{cv.EducationInfor.end_duration}}
+                      </p>
+                      <p>Qualification attained: {{cv.EducationInfor.qualification}}</p>
+                    </ul>
+                </div><!-- ./edu info -->
+                <div>
+                    <h3>Work Experience</h3>
+                    <ul>
+                      <p>Name of work institution:  {{cv.WorkInfor.name_of_workPlace}}</p>
+                      <p>
+                          Worked from: {{cv.WorkInfor.work_start}} - to: {{cv.WorkInfor.work_end}}
+                        </p>
+                      <p>Postion held: {{cv.WorkInfor.position_held}}</p>
+                      <p>Responsibilities: {{cv.WorkInfor.responsibilities}}</p>
+                    </ul>
+                </div><!-- ./work info -->
+                <div>
+                    <h3>Personal Attributes and Skills</h3>
+                    <ul>
+                      <p>Languages:  {{cv.Attributes.languages}}</p>
+                      <p>Interests: {{cv.Attributes.interests}}</p>
+                    </ul>
+                </div><!-- ./attributes info -->
+                <div>
+                    <h3>References</h3>
+                    <ul>
+                      <p>Name of referee:  {{cv.Referee.title}} {{cv.Referee.name_of_referee}}</p>
+                      <p>Address: {{cv.Referee.ref_address}}</p>
+                      <p>Email: {{cv.Referee.ref_email}}</p>
+                      <p>Contact: {{cv.Referee.contact_num}}</p>
+                    </ul>
+                </div><!-- ./work info -->
+              </div>
+            </div>
+          </div>
         </div>
 
     </div> <!-- ./col -->

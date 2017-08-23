@@ -23,5 +23,15 @@
 
   <!-- Bootstrap Core JavaScript -->
   <script src="app/bootstrap/bootstrap.min.js"></script>
+  <!-- button tabs script -->
+  <script>
+    $('.btnNext').click(function(){
+        $('.nav-tabs > .active').next('li').find('a').trigger('click');
+    });
+
+    $('.btnPrevious').click(function(){
+        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+    });
+  </script>
 </body>
 </html>

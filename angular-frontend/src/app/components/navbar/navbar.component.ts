@@ -25,6 +25,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * gets the username of local storage
+   */
   getUsername() {
     let user = JSON.parse(localStorage.getItem('user'));
     this.username = user.username;

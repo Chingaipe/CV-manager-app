@@ -23,7 +23,9 @@ mongoose.connection.on('error', (err) => {
 // initializing app with express
 const app = express();
 
+// Route files
 const users = require('./routes/users');
+const cvs = require('./routes/cvs');
 
 // default port variable
 const port = 3000;
@@ -42,7 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // bodyParser middleware
 app.use(bodyParser.json());
 
+// route paths
 app.use('/users', users);
+app.use('/api/cvs', cvs);
 
 // handles listening to the specified port and starts server
 app.listen(port, () => {
