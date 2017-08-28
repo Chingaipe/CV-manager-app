@@ -42,4 +42,9 @@ export class CvService {
       .map(res => res.json());
   }
 
+  exportCV(id) {
+    return this.http.get('http://localhost:3000/api/cvs/export/' + id)
+    .map(res => res.json());
+  }
+
 }

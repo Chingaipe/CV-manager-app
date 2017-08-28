@@ -8,7 +8,12 @@
         <P *ngIf="!cv">
           This is the application dashboard, create a CV and preview it here.
         </P>
-        <div class="col-md-3 col-xs-12 pull-right">
+        <form (ngSubmit)="onImport(imprtForm.value)" #imprtForm="ngForm">
+          <label for="import">Import CV <small>(Must be of an excel file)</small></label>
+          <input type="file" name="imprtCV" [(ngModel)]="imprtCV">
+          <input type="submit" name="Submit" value="Import">
+        </form>
+        <div class="col-md-4 col-xs-12 pull-right">
           <ul *ngIf="cv" class="list-inline">
               <p>Edit or Delete control buttons</p>
             <li>
@@ -16,6 +21,12 @@
               <a routerLink="/cv/edit/{{cv.user}}" class="btn btn-default">
                 <i class="fa fa-pencil"></i> Edit
               </a>
+            </li>
+            <li>
+              <!-- exports -->
+              <button type="button" class="btn btn-info" (click)="onExportClick(cv._id)">
+                <i class="fa fa-share"></i> Export
+              </button>
             </li>
             <li>
               <!-- directs to the register page -->

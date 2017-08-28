@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   // variable
   cv: any; // holds the data from db
   user_id: any; // holds user's id
+  imprtCV: any;
 
   constructor(
     private cvService: CvService,
@@ -39,6 +40,18 @@ export class DashboardComponent implements OnInit {
     let user = JSON.parse(localStorage.getItem('user'));
     this.user_id = user.id;
     return this.user_id;
+  }
+
+  onImport(imprt) {
+    console.log(imprt);
+  }
+
+  onExportClick(id){
+    this.cvService.exportCV(id).subscribe(data => {
+      // flash message
+      this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeout: 4000});
+      this.router.navigate(['/dashboard']);
+    });
   }
 
   /**

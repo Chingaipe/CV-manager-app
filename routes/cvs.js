@@ -3,6 +3,7 @@
  */
 const express = require('express');
 const router = express.Router();
+const mongoXlsx = require('mongo-xlsx'); // converts to excel file
 
 const CV = require('../Models/cv');
 
@@ -57,6 +58,26 @@ router.delete('/delete/:user_id', (req, res) => {
             res.send(err);
         }
         res.json({success: true, msg: 'The Ciricullum vitae has been deleted successfully'});
+    });
+});
+
+// export route
+router.get('/export/:id', (req, res) => {
+    CV.getCVById(req.params.id, (err, cv) => {
+        if(err) {
+            res.send(err);
+        }else {
+            const data = [cv];
+            const model = mongoXlsx.buildDynamicModel(data);
+
+            // generates Excel
+            mongoXlsx.mongoData2Xlsx(data, model, function(err, data) {
+                if(err) {
+                    res.send(err);
+                }
+                res.json({success: true, msg: 'File converted succesfully.'});
+            });
+        }
     });
 });
 

@@ -10,7 +10,7 @@ const cvSchema = mongoose.Schema({
     },
     PersonalInfor: {
         fullName: String,
-        dob: Date,
+        dob: String,
         status: String,
         address: String,
         mobile: String,
@@ -43,7 +43,7 @@ const cvSchema = mongoose.Schema({
         contact_num: String
     },
     created_at: {
-        type: Date,
+        type: String,
         default: Date.now
     }
 });
@@ -56,9 +56,9 @@ module.exports.getCVs = (callback, limit) => {
     CV.find(callback).limit(limit).sort([['created_at', 'ascending']]);
 };
 
-// Get CV
-module.exports.getCVById = (user_id, callback, limit) => {
-    CV.findById(user_id, callback);
+// Get CV by the id
+module.exports.getCVById = (id, callback) => {
+    CV.findById(id, callback);
 };
 
 // Get user's CV
@@ -153,8 +153,6 @@ module.exports.updateCV = (user_id, cv, options, callback) => {
     };
     CV.findOneAndUpdate(query, update, options, callback);
 };
-
-
 
 // Deletes the CV
 module.exports.removeCV = (user_id, callback) => {
